@@ -1,31 +1,31 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
-struct MyDataType {
-    value: i32,
+pub struct MyDataType {
+    pub value: i32,
     #[serde(skip_serializing_if = "Option::is_none")]
-    maybe_string: Option<String>,
-    an_enum: AnEnum,
+    pub maybe_string: Option<String>,
+    pub an_enum: AnEnum,
     #[serde(flatten)]
-    nested_data: AnotherDataType,
+    pub nested_data: AnotherDataType,
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
-struct AnotherDataType {
-    name: String,
-    values: Vec<f64>,
+pub struct AnotherDataType {
+    pub name: String,
+    pub values: Vec<f64>,
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "type")]
-enum AnEnum {
+pub enum AnEnum {
     Variant1,
     Variant2(Variant2Data),
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
-struct Variant2Data {
-    numbers: Vec<f64>,
+pub struct Variant2Data {
+    pub numbers: Vec<f64>,
 }
 
 #[cfg(test)]

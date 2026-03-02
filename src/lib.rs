@@ -3,6 +3,7 @@
 mod formats;
 mod roundtrip;
 mod schema_evolution;
+mod size;
 
 #[macro_export]
 macro_rules! test_format_impl {
